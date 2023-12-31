@@ -1,7 +1,31 @@
 import os
 import random
+import glob
 
 import pygame
+
+def get_list_mp3():
+    extension = '*.mp3'
+    current_directory = os.path.join(os.getcwd(), extension)
+    list_mp3 = glob.glob(current_directory)
+    return list_mp3
+
+# Пример использования
+mp3 = get_list_mp3()
+
+# Вывести список mp3 файлов
+print("Список mp3 файлов:")
+for i in range(len(mp3)):
+    mp3[i] = os.path.basename(mp3[i])
+    print(mp3[i])
+
+# Выбор песни
+musics = mp3
+print("Введите число для выбора песни:")
+for i in range(len(musics)):
+    print(f'{i + 1} - {musics[i]}')
+choice = int(input('>>> '))
+music = musics[(choice - 1) % len(musics)]
 
 # инициализация Pygame:
 pygame.init()
@@ -16,10 +40,9 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
 
+
 # формирование кадра:
-# команды рисования на холсте
-
-
+# команды рисования на холсте  
 def load_image(name, colorkey=None):
     fullname = os.path.join(name)
     # print(fullname)
@@ -77,14 +100,15 @@ def create_particles(position):
     for _ in range(particle_count):
         Particle(position, random.choice(numbers), random.choice(numbers))
 
-
+# Картинка
 bg_image = load_image("NG.jpg")
 bg_image = pygame.transform.scale(bg_image, (WIDTH, HEIGHT))
 
 all_sprites = pygame.sprite.Group()
 clock = pygame.time.Clock()
 
-pygame.mixer.music.load('ABBA - Happy New Year.mp3')
+# Проигрывание песни
+pygame.mixer.music.load(music)
 pygame.mixer.music.play(-1)
 running = True
 
