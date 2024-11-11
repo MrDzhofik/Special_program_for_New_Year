@@ -2,7 +2,7 @@
 Эта небольшая программа может подарить вам новогоднее настроение.
 
 Сначала вам следует установить python версии 3.5 и выше. Затем установите pygame этой командой:
-"pip install pygame"
+`pip install pygame`
 
 Вы можете выбрать пользовательскую фотографию и музыку в этой программе.
 1) Поместите фотографию в этот каталог и измените название файла в функции find_file()
@@ -16,7 +16,8 @@
 I wish you all a happy New year 2024!
 This little program can give you a New Year's mood.
 
-First, you should install python version 3.5 and higher. Then install pygame "pip install pygame"
+First, you should install python version 3.5 and higher. Then install pygame 
+`pip install pygame`
 
 You may pick custom photo and music in this program.
 1) Place photo in this directory and change the file name in the function find_file()
